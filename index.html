@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Press Start 2P', cursive;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- main div -->
+  <div class="main_div">
+    <!-- childN1 -->
+    <div class="childN1">
+      <!-- player health -->
+      <div class="health_div">
+        <div class="health_div_child"></div>
+        <div id="playerHealth" style="
+            position: absolute;
+            background: #818cf8;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+          "></div>
+      </div>
+
+      <!-- timer -->
+      <div class="timer" id="timer">
+        10
+      </div>
+      <!-- enemy health -->
+      <div class="enemy_health">
+        <div class="enemy_health_child"></div>
+        <div class="enemy_health_child_2" id="enemyHealth"></div>
+      </div>
+      <div></div>
+    </div>
+    <div class="result" id="displayText">
+      Tie
+    </div>
+    <canvas></canvas>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/classes.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
