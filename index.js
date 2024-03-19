@@ -177,14 +177,14 @@ function animate() {
   player.update()
   enemy.update()
 
-  // Update player position to ensure they stay within canvas boundaries
+  // players stais in canvas
   if (player.position.x < 0) {
     player.position.x = 0;
   } else if (player.position.x + player.width > canvas.width) {
     player.position.x = canvas.width - player.width;
   }
 
-  // Update enemy position to ensure they stay within canvas boundaries
+  // enemy stays in canvas 
   if (enemy.position.x < 0) {
     enemy.position.x = 0;
   } else if (enemy.position.x + enemy.width > canvas.width) {
