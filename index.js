@@ -177,6 +177,20 @@ function animate() {
   player.update()
   enemy.update()
 
+  // Update player position to ensure they stay within canvas boundaries
+  if (player.position.x < 0) {
+    player.position.x = 0;
+  } else if (player.position.x + player.width > canvas.width) {
+    player.position.x = canvas.width - player.width;
+  }
+
+  // Update enemy position to ensure they stay within canvas boundaries
+  if (enemy.position.x < 0) {
+    enemy.position.x = 0;
+  } else if (enemy.position.x + enemy.width > canvas.width) {
+    enemy.position.x = canvas.width - enemy.width;
+  }
+
   player.velocity.x = 0
   enemy.velocity.x = 0
 
@@ -277,7 +291,10 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 'a'
         break
       case 'w':
-        player.velocity.y = -20
+        if (player.canJump) { // Check if the player can jump
+          player.velocity.y = -20
+          player.canJump = false // Prevent further jumping until hitting the ground
+        }
         break
       case ' ':
         player.attack()
@@ -296,15 +313,18 @@ window.addEventListener('keydown', (event) => {
         enemy.lastKey = 'ArrowLeft'
         break
       case 'ArrowUp':
-        enemy.velocity.y = -20
+        if (enemy.canJump) { 
+          enemy.velocity.y = -20
+          enemy.canJump = false 
+        }
         break
       case 'ArrowDown':
         enemy.attack()
-
         break
     }
   }
 })
+
 
 window.addEventListener('keyup', (event) => {
   switch (event.key) {
