@@ -88,7 +88,7 @@ const player = new Fighter({
 
 const enemy = new Fighter({
   position: {
-    x: 400,
+    x: 800,
     y: 100
   },
   velocity: {
@@ -206,12 +206,6 @@ function animate() {
     player.switchSprite('idle')
   }
 
-  // jumping
-  if (player.velocity.y < 0) {
-    player.switchSprite('jump')
-  } else if (player.velocity.y > 0) {
-    player.switchSprite('fall')
-  }
 
   // Enemy movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
@@ -291,9 +285,9 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 'a'
         break
       case 'w':
-        if (player.canJump) { // Check if the player can jump
+        if (player.canJump) { 
           player.velocity.y = -20
-          player.canJump = false // Prevent further jumping until hitting the ground
+          player.canJump = false 
         }
         break
       case ' ':

@@ -92,7 +92,7 @@ class Fighter extends Sprite {
     this.framesHold = 5
     this.sprites = sprites
     this.dead = false
-    this.canJump = true; // New flag to track if the fighter can jump
+    this.canJump = true; 
 
     for (const sprite in this.sprites) {
       sprites[sprite].image = new Image()
@@ -123,14 +123,14 @@ class Fighter extends Sprite {
     if (this.position.y + this.height + this.velocity.y >= canvas.height - 96) {
       this.velocity.y = 0
       this.position.y = 330
-      this.canJump = true; // Reset the jump flag when hitting the ground
+      this.canJump = true; 
     } else this.velocity.y += gravity
   }
 
   jump() {
     if (this.canJump && this.velocity.y === 0) {
-        this.velocity.y = -10; // Adjust this value according to your needs for jump height
-        this.canJump = false; // Set the flag to prevent further jumping until hitting the ground again
+        this.velocity.y = -10; 
+        this.canJump = false; 
     }
 }
 
@@ -226,4 +226,4 @@ class Fighter extends Sprite {
   }
 }
 
-// Your other code remains unchanged
+
